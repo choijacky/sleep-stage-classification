@@ -1,0 +1,74 @@
+# Dataset Hyperparameter
+dataset:
+  base_path: ../NeuroNet/dataset/cassette_processed/
+  k_splits: 5
+  n_fold: 0
+
+  sfreq: 100
+  rfreq: 100
+  data_scaler: false
+  masking: token
+  balanced_sampling: False
+
+# Train Hyperparameter
+train:
+  train_epochs: 30
+  train_warmup_epoch: 50
+  train_base_learning_rate: 1e-5
+  weight_decay: 1e-4
+  train_batch_size: 256
+  train_batch_accumulation: 1
+  print_point: 20
+  ckpt_path: /cluster/project/jbuhmann/choij/sleep-stage-classification/ckpt/Sleep-EDFX
+  model_name: mini
+  fold: null
+
+# Model Hyperparameter
+frames:
+  n_channels: 1
+  second: 30
+  time_window: 3
+  time_step: 3
+
+# NeuroNet-B Hyperparameter
+neuronet:
+  encoder_embed_dim: 768
+  encoder_heads: 8
+  encoder_depths: 4
+  decoder_embed_dim: 256
+  decoder_heads: 8
+  decoder_depths: 3
+  alpha: 1.0
+  asym_loss: False
+  recon_mode: "masked_tokens"
+  contrastive: False
+  freq_bins: 0
+
+# NeuroNet-T Hyperparameter
+# neuronet:
+#   encoder_embed_dim: 512
+#   encoder_heads: 8
+#   encoder_depths: 4
+#   decoder_embed_dim: 192
+#   decoder_heads: 8
+#   decoder_depths: 1
+#   alpha: 1.0
+
+  projection_hidden:
+    - 1024
+    - 512
+  temperature: 0.5
+  mask_ratio: 0.5
+  freq_mask_ratio: null
+
+spectro:
+  time_dim: 60
+  freq_dim: 30
+  patch_size: 3
+
+contra:
+  n_dim: 128
+  m: 0.9995
+  sigma: 2.0
+  delta: 0.2
+  T: 2.0

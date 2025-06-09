@@ -1,0 +1,19 @@
+epochs: 50
+batch_size: 512
+lr: 1e-5
+dataset: "Sleep-EDFX"
+ckpt_path: "/cluster/ckpt"
+model_name: "neuronet-b-256"
+base_path: ../NeuroNet/dataset/cassette_processed/
+n_channels: 1
+ft_split: "train"
+representation: "CLS"
+
+test_dataset: null
+
+dod_scorer: 1
+soft_label: False
+
+fold: null
+
+patch_size: 3
