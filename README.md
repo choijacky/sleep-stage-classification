@@ -34,8 +34,16 @@ This repository contains code for classifying sleep stages using various neural 
    Run the preprocessing script with appropriate arguments to generate train/val/test splits:
 
    ```bash
-   python preprocess/sleepEDF_cassette_process.py --root_folder path/to/sleep-edfx --dest_folder ./dataset --multiprocess 8
+   python preprocess/sleepEDF_cassette_process.py --root_folder path/to/sleep-edfx --dest_folder ./dataset --multiprocess 8 --reduced --standard
    ```
+
+   or to get the spectrograms, run:
+
+   ```bash
+   python preprocess/sleepEDFX_spectro.py --multiprocess 8 --reduced --standard --root_folder path/to/sleep-edfx --dest_folder ./dataset --dataset_name casette_reduced_spectro --time_freq_technique "wavelet_transform"
+   ```
+
+Analogously, there are files to run preprocessing for the DOD-H dataset, which can be obtained [here](https://github.com/Dreem-Organization/dreem-learning-open)
 
 ## Training
 
