@@ -39,7 +39,7 @@ N_CHANNELS=1
 FT_SPLIT="train"
 REPRESENTATION="CLS"
 PATCH_SIZE=5
-DOD_SCORER=1
+#DOD_SCORER=1
 
 #JOB="/cluster/home/choij/miniconda3/envs/myenv/bin/python ./preprocess/sleepEDF_cassette_process.py"
 /cluster/home/choij/miniconda3/envs/neuronet2/bin/python /cluster/project/jbuhmann/choij/sleep-stage-classification/finetune/linear_prob.py epochs=$EPOCHS batch_size=$BATCH_SIZE ckpt_path=$CKPT_PATH lr=$LR base_path=$BASE_PATH model_name=$MODEL_NAME n_channels=$N_CHANNELS ft_split=$FT_SPLIT representation=$REPRESENTATION # patch_size=$PATCH_SIZE dod_scorer=$DOD_SCORER

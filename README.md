@@ -47,15 +47,15 @@ Analogously, there are files to run preprocessing for the DOD-H dataset, which c
 
 ## Training
 
-You can start training using the provided shell script. Modify `train_job.sh` with your desired hyperparameters, then run:
+You can start training using the provided shell script. Modify `train_neuro.sh` with your desired hyperparameters, then run:
 
 ```bash
-sbatch train_job.sh
+sbatch train_neuro.sh
 ```
 
 ### Shell Script Arguments
 
-The shell scripts for training and finetuning accept several arguments to customize the training process.
+The shell scripts for training accept several arguments to customize the training process.
 
 - `DATASET`: Name of the dataset to use.
 - `TRAIN_EPOCHS`: Number of training epochs.
@@ -84,6 +84,28 @@ The repository includes several neural network architectures, such as `NeuroNet`
 ## Evaluation
 
 After training, evaluate your models using the `linear_prob.py` script or other evaluation scripts provided in the `finetune` directory.
+
+You can start training using the provided shell script. Modify `finetune.sh` with your desired hyperparameters, then run:
+
+```bash
+sbatch finetune.sh
+```
+
+### Shell Script Arguments
+
+The shell scripts for finetuning accept several arguments to customize the training process.
+
+- `EPOCHS`: Finetune epochs
+- `BATCH_SIZE`: Eval batch size
+- `BASE_PATH`: Path to dataset
+- `LR`: Learning rate
+- `MODEL_NAME`: Name of the model name to run evaluation
+- `CKPT_PATH`: Path to the checkpoint file
+- `N_CHANNELS`: Number of channels in the input data
+- `FT_SPLIT`: Which split to finetune on. One of "train" and "val"
+- `REPRESENTATION`: Which representation to pass to the linear probe. One of "CLS" or "Embed"
+- `PATCH_SIZE`: (Optional) Patch size if you run masking in patches.
+
 
 ## License
 
